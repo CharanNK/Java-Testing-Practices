@@ -1,3 +1,6 @@
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -9,18 +12,37 @@ class MathUtilsTest {
 
     MathUtils mathUtils = new MathUtils();
 
+    static private boolean checkBooleanWithBeforeAll;
+
+    private boolean checkBooleanWithBeforeEach;
+
+    @BeforeAll
+    static void setup() {  //method annotated with @BeforeAll has to be made static
+        checkBooleanWithBeforeAll = true;
+    }
+
+    @BeforeEach
+    void setBeforeEach() {
+        checkBooleanWithBeforeEach = true;
+    }
+
+    @DisplayName("Add method test")
     @Test
     void addTest() {
         int expected = 2;
         int actual = mathUtils.add(1, 1);
+        checkBooleanWithBeforeAll = false;
 
         assertEquals(expected, actual, "The method adds two numbers");
     }
 
+    @DisplayName("Reverse array test")
     @Test
     void reverseArrayTest() {
         int[] arr = {1, 2, 3, 4, 5};
         int[] expected = {5, 4, 3, 2, 1};
+
+        System.out.println("Boolean check value :"+checkBooleanWithBeforeAll); //returns false as it is set to false in previous method and @BeforeAll runs only once
 
         int[] actual = mathUtils.reverseArray(arr);
 
@@ -48,6 +70,16 @@ class MathUtilsTest {
     @Test
     void testComputeCircleRadius() {
         assertEquals(Math.PI * 10 * 10, mathUtils.computeCircleRadius(10), "Returns circle area");
+    }
+
+    @Test
+    void subtractionTest() {
+        checkBooleanWithBeforeEach = false;
+    }
+
+    @Test
+    void multiplicationTest() {
+        System.out.println("checkBooleanWithBeforeEach value : "+checkBooleanWithBeforeEach); //returns true since the value is reset before each test by @Before method.
     }
 
     @Test
