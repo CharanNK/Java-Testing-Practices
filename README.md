@@ -11,14 +11,32 @@ New annotations in Junit 5.0 when compared to Junit 4.0 :
 |--|--|--|
 |_@BeforeEach_  | _@Before_  | Denotes that the annotated method will be executed before each test method |
 _@AfterEach_ | _@After_ | Denotes that the annotated method will be executed after each test method |
-_@BeforeAll_ | _@BeforeClass_ | Denotes that the annotated method will be executed before all test methods in the current class |
-_@AfterAll_ | _@After_ | Denotes that the annotated method will be executed after all test methods in the current class |
+_@BeforeAll_ | _@BeforeClass_ | Denotes that the annotated method will be executed only once before all test methods in the current class |
+_@AfterAll_ | _@After_ | Denotes that the annotated method will be executed only once after all test methods in the current class |
 _@Disable_ | _@Ignore_ | It is used to disable a test class or method
 Additionally :
 -   _@DisplayName_ – defines custom display name for a test class or a test method
 -   _@Nested_ – denotes that the annotated class is a nested, non-static test class
 -   _@Tag_ – declares tags for filtering tests
 -   _@ExtendWith_  – it is used to register custom extensions
+
+## What is a stub?
+"stub" comes from `STartUpBlocks` 
+There are four particular kinds of stubs :
+> -   Dummy objects are passed around but never actually used. Usually they are just used to fill parameter lists.
+>-   Fake objects actually have working implementations, but usually take some shortcut which makes them not suitable for production (an in memory database is a good example).
+>-   Stubs provide canned answers to calls made during the test, usually not responding at all to anything outside what's programmed in for the test. Stubs may also record information about calls, such as an email gateway stub that remembers the messages it 'sent', or maybe only how many messages it 'sent'.
+>-   Mocks are what we are talking about here: objects pre-programmed with expectations which form a specification of the calls they are expected to receive.
+
+- [x] `_Stubs_` differ to `_Mocks_` in that they are used to represent and test the **state** of an object, whereas a Mock tests its **interaction**.
+
+Difference between a `Stub` and a `Driver` :
+|  | Stub| Driver|
+|--|--|--|
+|   Used in | Top Down Integration| Bottom Up Integration |
+| Purpose | To allow testing of the upper levels of the code, when the lower levels are not yet developed.|  To allow testing of the lowe levels of the code, when the upper levels are not yet developed. |
+| Example | A and B are `components` <br/>A --> B <br/><br/> A has been developed.<br/>B has not been developed.<br/>Therefore, stub is used in place of B to imitate it.<br/><br/> A ---> stub | A and B are `components` <br/>A --> B <br/><br/> A still needs to be developed.<br/>B has been developed.<br/>Therefore, driver is used in place of A to imitate it.<br/><br/> B ---> Driver
+
 
 ## Assertions
 
