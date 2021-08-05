@@ -22,7 +22,6 @@ class MathUtilsTest {
         int[] expected = {5,4,3,2,1};
 
         int[] actual = mathUtils.reverseArray(arr);
-        System.out.println(Arrays.toString(actual));
 
         assertArrayEquals(expected,actual);
     }
@@ -42,6 +41,6 @@ class MathUtilsTest {
         List<String> expected = Arrays.asList("one","two","three","four");
         List<String> actual = mathUtils.interableAssertion();
 
-        assertIterableEquals(expected,actual);
+        assertFalse(expected.equals(actual), "This will pass");
     }
 }
