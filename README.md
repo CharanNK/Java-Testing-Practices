@@ -1,5 +1,24 @@
 
 
+## Junit
+- Junit works on the principle of **Test Driven Development** which means it emphasises on setting up the test data for a piece of code before implementation
+- The latest version of Junit is called 	**Jupiter** with version 5.0. Latest version of IntelliJ comes with Jupiter by default.
+- Junit is an open source **Regression Testing Framework** mainly used to implement unit testing.
+
+## Junit Jupiter
+New annotations in Junit 5.0 when compared to Junit 4.0 :
+|Junit 5.0  |Junit 4.0  | Description |
+|--|--|--|
+|_@BeforeEach_  | _@Before_  | Denotes that the annotated method will be executed before each test method |
+_@AfterEach_ | _@After_ | Denotes that the annotated method will be executed after each test method |
+_@BeforeAll_ | _@BeforeClass_ | Denotes that the annotated method will be executed before all test methods in the current class |
+_@AfterAll_ | _@After_ | Denotes that the annotated method will be executed after all test methods in the current class |
+_@Disable_ | _@Ignore_ | It is used to disable a test class or method
+Additionally :
+-   _@DisplayName_ – defines custom display name for a test class or a test method
+-   _@Nested_ – denotes that the annotated class is a nested, non-static test class
+-   _@Tag_ – declares tags for filtering tests
+-   _@ExtendWith_  – it is used to register custom extensions
 
 ## Assertions
 
