@@ -25,3 +25,5 @@ fail(String message) | _fails_ the test with the given message.
 > 
 > It matters because the equality test in the assertion relies on  `equals()`  and the test failure message relies on  `toString()`  of the compared objects.  
 For built-in classes such as  `String`,  `Integer`  and so for ... no problem as these override both  `equals()`  and  `toString()`. So it is perfectly valid to assert  `List<String>`  or  `List<Integer>`  with  `assertEquals(Object,Object)`.
+
+- A `message` can be passed as last argument for most of the assert methods to provide more description on the method.
