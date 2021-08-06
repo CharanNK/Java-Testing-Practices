@@ -20,6 +20,10 @@ Additionally :
 -   _@Tag_ – declares tags for filtering tests
 -   _@ExtendWith_  – it is used to register custom extensions
 
+## What is test driven development?
+-  Junit works on the principle of **Test Driven Development** which means it emphasises on setting up the test data for a piece of code before implementation.
+- It is important to build small test suites along the development process as large test suites are a side effect of waiting until the end of the project to write tests. Large tests suites are slow and flaky.
+
 ## What is a stub?
 "stub" comes from `STartUpBlocks` 
 There are four particular kinds of stubs :
@@ -64,3 +68,9 @@ assertThrows(Class expectedType,Executable executable ) | _Asserts_ that executi
 For built-in classes such as  `String`,  `Integer`  and so for ... no problem as these override both  `equals()`  and  `toString()`. So it is perfectly valid to assert  `List<String>`  or  `List<Integer>`  with  `assertEquals(Object,Object)`.
 - A `message` can be passed as last argument for most of the assert methods to provide more description on the method.
 - `assertThrows()` uses a lambda in place of executable.
+
+## Small Tests
+- The size of the tests should be preferably small as slow tests waste computational resources.
+- Flaky tests (that fail nondeterministically) undermine the purpose of automated testing by requiring manual intervention.
+- Tests become safer and reliable when restricted to a single machine and a single process.
+- Small tests are usually unit tests where the test code and the code under test always run together in the same process.
