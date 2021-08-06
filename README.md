@@ -78,6 +78,15 @@ For built-in classes such as  `String`,  `Integer`  and so for ... no problem as
 - A `message` can be passed as last argument for most of the assert methods to provide more description on the method.
 - `assertThrows()` uses a lambda in place of executable.
 
+## Test sizes
+
+|Size| Description |
+|--|--|
+|Small  | Single system. Single process |
+|Medium | Single system. Multiple processes|
+|Large | Multiple systems. Multiple processes|
+
+
 ## Small Tests
 - The size of the tests should be preferably small as slow tests waste computational resources.
 - Flaky tests (that fail nondeterministically) undermine the purpose of automated testing by requiring manual intervention.
