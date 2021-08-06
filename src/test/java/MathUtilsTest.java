@@ -1,7 +1,4 @@
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -86,5 +83,11 @@ class MathUtilsTest {
     void divideTest() {
         assertThrows(ArithmeticException.class, () -> mathUtils.divide(1, 0),
                 "Divide by 0 throws ArithmeticException");
+    }
+
+    @Test
+    @Disabled("Not yet implemented")
+    void testSomething(){
+
     }
 }
