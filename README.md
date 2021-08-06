@@ -20,6 +20,8 @@ Additionally :
 -   _@Tag_ – declares tags for filtering tests
 -   _@ExtendWith_  – it is used to register custom extensions
 
+> _@BeforeAll_ and _@AfterAll_ need to be static so that the blocks are executed even before the class is created. 
+
 ## What is test driven development?
 -  Junit works on the principle of **Test Driven Development** which means it emphasises on setting up the test data for a piece of code before implementation.
 - It is important to build small test suites along the development process as large test suites are a side effect of waiting until the end of the project to write tests. Large tests suites are slow and flaky.
