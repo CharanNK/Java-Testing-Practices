@@ -41,6 +41,15 @@ Difference between a `Stub` and a `Driver` :
 | Purpose | To allow testing of the upper levels of the code, when the lower levels are not yet developed.|  To allow testing of the lowe levels of the code, when the upper levels are not yet developed. |
 | Example | A and B are `components` <br/>A --> B <br/><br/> A has been developed.<br/>B has not been developed.<br/>Therefore, stub is used in place of B to imitate it.<br/><br/> A ---> stub | A and B are `components` <br/>A --> B <br/><br/> A still needs to be developed.<br/>B has been developed.<br/>Therefore, driver is used in place of A to imitate it.<br/><br/> B ---> Driver
 
+## Test Lifecycle
+A JUnit test case can contain many test methods. Each method identified as a test will be executed within the JUnit test lifecycle. The lifecycle consists of three pieces: setup, test and teardown, all executed in sequence.
+![Test Lifecycle](https://dzone.com/storage/rc-covers/14456-thumb.png)
+
+|Stage | Description  |
+|--|--|
+| setUp | Called to do any required preprocessing before a test. Examples include instantiating  |
+test | Each test method is called once within the test lifecycle. It performs all required testing.|
+teardown | Called to do any required post processing after a test. Examples include cleaning up of database tables and closing database connections.
 
 ## Assertions
 
