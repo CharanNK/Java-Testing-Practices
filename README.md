@@ -100,6 +100,27 @@ As we can see, none of the variables or functions are static. We are allowed to 
 
 We should also note that the changes made to the state of the instance variables by one test will now be visible to the others.
 
+#### Uses of @TestInstance(PER_CLASS)
+
+ 1. **Expensive Resources**
+	 This annotation is useful when instantiation of a class before every test is quite expensive. An example could be establishing a database connection, or loading a large file.
+	 
+2. **Deliberately Sharing State**
+	The per-class lifecycle supports sequential tests that intentionally share state.
+	When sharing state, to execute all the tests in sequence, JUnit 5 provides us with the type-level _[@TestMethodOrder](https://www.baeldung.com/junit-5-test-order)_ annotation. Then we can use the _[@Order](https://www.baeldung.com/junit-5-test-order)_ annotation on the test methods to execute them in the order of our choice.
+	
+
+    ```@TestMethodOrder(OrderAnnotation.class)  
+    class OrderUnitTest { 
+    @Test  
+    @Order(1)  
+    void firstTest() { // ... } 
+    
+    @Test  
+    @Order(2)  
+    void secondTest() { // ... }
+     }```
+
 ## Test sizes
 
 |Size| Description |
