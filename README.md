@@ -20,8 +20,6 @@ Additionally :
 -   _@Tag_ – declares tags for filtering tests
 -   _@ExtendWith_  – it is used to register custom extensions
 
-> _@BeforeAll_ and _@AfterAll_ need to be static so that the blocks are executed even before the class is created. 
-
 ## What is test driven development?
 -  Junit works on the principle of **Test Driven Development** which means it emphasises on setting up the test data for a piece of code before implementation.
 - It is important to build small test suites along the development process as large test suites are a side effect of waiting until the end of the project to write tests. Large tests suites are slow and flaky.
@@ -79,6 +77,28 @@ assertThrows(Class expectedType,Executable executable ) | _Asserts_ that executi
 For built-in classes such as  `String`,  `Integer`  and so for ... no problem as these override both  `equals()`  and  `toString()`. So it is perfectly valid to assert  `List<String>`  or  `List<Integer>`  with  `assertEquals(Object,Object)`.
 - A `message` can be passed as last argument for most of the assert methods to provide more description on the method.
 - `assertThrows()` uses a lambda in place of executable.
+
+## @TestInstance annotation in Junit 5
+The _@TestInstance_ annotation lets us configure the lifecycle of JUnit 5 tests.
+**_@TestInstance_**  has two modes :
+
+ 1. _LifeCycle.PER_METHOD_ (the default).
+ 2. _LifeCycle.PER_CLASS_
+
+_LifeCycle.PER_CLASS_ enables us to ask JUnit to create only one instance of the test class and reuse it between tests.
+
+    @TestInstance(LifeCycle.PER_CLASS)  
+    class TweetSerializerUnitTest { 
+    private String largeContent; 
+    
+    @BeforeAll  
+    void setUpFixture() { // read the file } 
+    
+    }
+
+As we can see, none of the variables or functions are static. We are allowed to use an  **instance method for _@BeforeAll_  when we use the _PER_CLASS_**  lifecycle.
+
+We should also note that the changes made to the state of the instance variables by one test will now be visible to the others.
 
 ## Test sizes
 
